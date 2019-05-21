@@ -119,7 +119,24 @@ public class SenseGlove_Grabable : SenseGlove_Interactable
                             Vector3 dPos = this.snapReference.position - grabScript.grabAnchor.transform.position;
                             this.pickupReference.transform.position = this.pickupReference.transform.position - dPos;
                         }
+
                         //other attachmethods.
+
+                        //GABRIEL 
+                        if (this.attachMethod == AttachType.SnapToCenterHand && this.snapReference != null)
+                        {
+                            if (grabScript.handModel.name.Contains("Left"))
+                            {
+                                snapReference = GameObject.Find("leftGrabAnchor").transform;
+                                Debug.Log("Object picked up by left hand");
+                            }
+                            else
+                            {
+                                snapReference = GameObject.Find("rightGrabAnchor").transform;
+                                Debug.Log("Object picked up by right hand");
+                            }
+                            this.pickupReference.transform.position = snapReference.position;
+                        }
                     }
                 }
 
@@ -431,4 +448,5 @@ public enum AttachType
     SnapToAnchor,
     // /// <summary> (BETA) Same as SnapToAnchor; but the object reaches its desired destination with a smooth animation. </summary>
     // FlowToAnchor
+    SnapToCenterHand,
 }

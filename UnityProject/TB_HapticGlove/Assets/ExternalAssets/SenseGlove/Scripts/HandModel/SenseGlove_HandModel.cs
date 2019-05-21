@@ -219,7 +219,7 @@ public abstract class SenseGlove_HandModel : MonoBehaviour
                 newMesh.anchor = TextAnchor.MiddleCenter;
 
                 newMesh.text = "000";
-                newMesh.fontSize = 50;
+                newMesh.fontSize = 200;
                 newMesh.transform.localScale = new Vector3(scale, 1, 1);
 
                 this.debugText[f] = newMesh;

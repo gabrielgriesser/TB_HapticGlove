@@ -3294,7 +3294,7 @@ MonoBehaviour:
   releaseObjectKey: 101
   releaseTimeOut: 1
   variableToCalibrate: 2
-  collectionMethod: 1
+  collectionMethod: 0
 --- !u!114 &959794705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12018,7 +12018,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034151459}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbd7a5980dbdd0c4986d00cfff738cc4, type: 3}
   m_Name: 
@@ -12068,7 +12068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   senseGlove: {fileID: 959794705}
   objectText: {fileID: 1839019465}
-  instrText: {fileID: 0}
+  instrText: {fileID: 71664962}
   quitKey: 27
   index: -1
   objectsToSwap:

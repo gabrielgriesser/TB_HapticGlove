@@ -125,7 +125,7 @@ public class SenseGlove_Grabable : SenseGlove_Interactable
                         //GABRIEL 
                         if (this.attachMethod == AttachType.SnapToCenterHand && this.snapReference != null)
                         {
-                            if (grabScript.handModel.name.Contains("Left"))
+                            if (grabScript.handModel.senseGlove.GloveData.gloveSide == GloveSide.LeftHand)
                             {
                                 snapReference = GameObject.Find("leftGrabAnchor").transform;
                                 Debug.Log("Object picked up by left hand");

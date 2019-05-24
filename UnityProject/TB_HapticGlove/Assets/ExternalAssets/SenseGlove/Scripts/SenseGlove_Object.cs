@@ -128,6 +128,7 @@ public class SenseGlove_Object : MonoBehaviour
     public bool IsConnected
     {
         get { return this.linkedGlove != null && this.linkedGlove.IsConnected(); }
+        private set { }
     }
 
     /// <summary> Retrieve Unity-Friendly Glove Data from the Sense Glove. </summary>
@@ -350,7 +351,8 @@ public class SenseGlove_Object : MonoBehaviour
     protected void OnGloveDisconnect()
     {
         this.wasConnected = false;
-        //Debug.Log(this.name + " Disconnected from Sense Glove " + this.linkedGlove.DeviceID());
+        this.IsConnected = false;
+        Debug.Log(this.name + " Disconnected from Sense Glove " + this.linkedGlove.DeviceID());
         //if (GloveDisconnected != null)
         //{
         //    GloveDisconnected(this, null);
@@ -711,7 +713,6 @@ public class SenseGlove_Object : MonoBehaviour
             this.trackedGloveIndex = this.actualTrackedIndex;
         }
     }
-
     #endregion Monobehaviour
 
 }

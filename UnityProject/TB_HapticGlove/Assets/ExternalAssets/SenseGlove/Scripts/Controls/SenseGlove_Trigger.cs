@@ -40,6 +40,7 @@ public class SenseGlove_Trigger : SenseGlove_Detector
     /// <summary> If set to true, the haptic feedback is continuous while the glove is inside the trigger </summary>
     public bool loop = false;
 
+
     //------------------------------------------------------------------------------------------------------
     //   Private Properties
 
@@ -52,6 +53,10 @@ public class SenseGlove_Trigger : SenseGlove_Detector
     /// <summary> Used to keep track of new buzz commands. </summary>
     private float buzzTimer = 0;
 
+    // GABRIEL HERE
+    /// <summary> Used to play animation when trigger enter and exit </summary>
+    private new Animation animation;
+
     #endregion Properties
 
     //------------------------------------------------------------------------------------------------------
@@ -63,10 +68,17 @@ public class SenseGlove_Trigger : SenseGlove_Detector
     {
         this.SetAudio(true);
         this.SetParticles(true);
-        this.SetEffectObject(true);
+
+        if (this.effectToShow.activeSelf == false)
+            this.SetEffectObject(true);
+        else
+            this.SetEffectObject(false);
+
         if (this.hapticFeedback)
         {
             this.FireHapticFeedback();
+            animation.wrapMode = WrapMode.Once;
+            animation.Play("ButtonDown");
         }
         this.inUse++;
         base.FireDetectEvent(model); //do X, then fire
@@ -76,9 +88,10 @@ public class SenseGlove_Trigger : SenseGlove_Detector
     {
         this.SetAudio(false);
         this.SetParticles(false);
-        this.SetEffectObject(false);
         if (this.hapticFeedback)
         {
+            animation.wrapMode = WrapMode.Once;
+            animation.Play("ButtonUp");
             this.FireHapticFeedback(true);
         }
         this.inUse--;
@@ -168,6 +181,7 @@ public class SenseGlove_Trigger : SenseGlove_Detector
         this.SetAudio(false);
         this.SetParticles(false);
         this.SetEffectObject(false);
+        this.animation = GetComponent<Animation>();
 
         if (this.loop)
         {

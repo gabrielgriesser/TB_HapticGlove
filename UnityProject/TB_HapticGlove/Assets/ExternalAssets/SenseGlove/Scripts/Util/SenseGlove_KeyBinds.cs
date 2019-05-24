@@ -29,7 +29,7 @@ public class SenseGlove_KeyBinds : MonoBehaviour
     /// <summary> The key to start a new Semi-Automatic finger Calibration. </summary>
     [Tooltip("The key to enter the next step of the finger calibration. If calibration is set to manual, use this same key to store the next datapoint.")]
     public KeyCode calibrateHandKey = KeyCode.LeftShift;
-    
+
     /// <summary> The keys to cancel and reset the calibration of the fingers. </summary>
     [Tooltip("The key to cancel and reset the calibration of the fingers.")]
     public KeyCode cancelCalibrationKey = KeyCode.Escape;

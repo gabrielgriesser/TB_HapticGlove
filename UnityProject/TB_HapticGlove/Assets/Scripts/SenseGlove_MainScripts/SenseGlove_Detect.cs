@@ -5,7 +5,7 @@ using UnityEngine;
 public class SenseGlove_Detect : MonoBehaviour
 {
 
-    public SenseGlove_Object senseGlove;
+    public SenseGlove_Object senseGloveRight, senseGloveLeft;
 
     private SenseGlove_KeyBinds keyBinds;
 
@@ -30,9 +30,9 @@ public class SenseGlove_Detect : MonoBehaviour
 
     void Start()
     {
-        if (this.senseGlove != null)
+        if (this.senseGloveRight != null && this.senseGloveLeft != null)
         {
-            this.keyBinds = this.senseGlove.gameObject.GetComponent<SenseGlove_KeyBinds>();
+            this.keyBinds = this.senseGloveRight.gameObject.GetComponent<SenseGlove_KeyBinds>();
         }
         this.WriteInstr(this.GetInstructions());
     }
@@ -55,20 +55,41 @@ public class SenseGlove_Detect : MonoBehaviour
     /// <returns></returns>
     private string GetInstructions()
     {
-        if (this.senseGlove != null && this.senseGlove.GloveReady)
+        //2 gants connectés
+        if ((this.senseGloveRight != null && this.senseGloveRight.GloveReady && this.senseGloveRight.IsConnected) && (this.senseGloveLeft != null && this.senseGloveLeft.GloveReady && this.senseGloveLeft.IsConnected))
         {
-            string res = "Use A/S/W/D to move and the mouse wheel to up/down hands" + "\r\n";
+            string res = "Use A/S/W/D to move and the mouse wheel to move up / down the hands" + "\r\n";
 
-            if (this.senseGlove != null && this.senseGlove.IsCalibrating)
+            if (this.senseGloveRight != null && this.senseGloveRight.IsCalibrating)
             {
-                SenseGlove_Data data = this.senseGlove.GloveData;
-                res += "Calibrating: Gathered " + data.calibrationStep + " / " + data.totalCalibrationSteps + " points.\r\n";
-                if (this.keyBinds != null)
+                SenseGlove_Data data = this.senseGloveRight.GloveData;
+
+                res = "Calibrating right glove: Gathered " + data.calibrationStep + " / " + data.totalCalibrationSteps + " points.\r\n";
+                
+                if (this.keyBinds != null && data.calibrationStep != data.totalCalibrationSteps)
                 {
-                    res += this.keyBinds.cancelCalibrationKey.ToString() + " to cancel.";
+                    res += this.keyBinds.cancelCalibrationKey.ToString() + " to exit calibration.";
+                }
+
+                else if (this.senseGloveLeft != null && this.senseGloveLeft.IsCalibrating)
+                {
+                    data = this.senseGloveLeft.GloveData;
+                    res = "Calibrating left glove: Gathered " + data.calibrationStep + " / " + data.totalCalibrationSteps + " points.\r\n";
+
+                    if (this.keyBinds != null && data.calibrationStep != data.totalCalibrationSteps)
+                    {
+                        res += this.keyBinds.cancelCalibrationKey.ToString() + " to exit calibration.";
+                    }
+                    else
+                    {
+                        res = "Use A/S/W/D to move and the mouse wheel to move up / down the hands" + "\r\n";
+                        res += this.keyBinds.calibrateHandKey + " to start calibration.\r\n";
+                        res += this.keyBinds.calibrateWristKey.ToString() + " to calibrate wrist.";
+                    }
                 }
                 return res;
             }
+
             else if (this.keyBinds != null)
             {
                 res += this.keyBinds.calibrateHandKey + " to start calibration.\r\n";
@@ -76,7 +97,15 @@ public class SenseGlove_Detect : MonoBehaviour
             }
             return res + "LeftShift / T(humb) to start calibration.";
         }
-        return "Waiting to connect to a\r\nSense Glove";
+        else if((this.senseGloveRight == null || this.senseGloveRight.IsConnected == false) && (this.senseGloveLeft == null || this.senseGloveLeft.IsConnected == false))
+        {
+            return "No glove connected";
+        }
+        else if ((this.senseGloveRight == null || this.senseGloveRight.IsConnected == false) || (this.senseGloveLeft == null || this.senseGloveLeft.IsConnected == false))
+        {
+            return "Waiting to connect to a second\r\nSense Glove";
+        }
+        return "No glove connected";
     }
 
     private void WriteInstr(string msg)

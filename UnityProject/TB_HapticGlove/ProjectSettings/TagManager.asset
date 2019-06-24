@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HandCollider
+  - SenseGlove
+  - SensoGlove
   layers:
   - Default
   - TransparentFX
@@ -13,13 +16,13 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Hi5OtherFingerTail
+  - Hi5OtherFingerOther
+  - Hi5Palm
+  - Hi5ObjectGrasp
+  - Hi5Plane
+  - Hi5ObjectTrigger
+  - Hi5IndexFingerTail
   - 
   - 
   - 

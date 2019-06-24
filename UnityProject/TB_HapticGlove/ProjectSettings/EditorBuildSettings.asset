@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Hi5Glove_Park.unity
+    guid: 3ef29a07e365c95418c2d8250bc771c4
+  - enabled: 0
+    path: Assets/Scenes/CalibrationWithoutHmd.unity
+    guid: fd313b37da947c74e8d35acae8e68869
+  - enabled: 1
+    path: Assets/ExternalAssets/HapticsDevices/NoitomHi5/Scenes/Calibration.unity
+    guid: 6a30d4de98ed43c43ad717498b2d8846
   m_configObjects: {}

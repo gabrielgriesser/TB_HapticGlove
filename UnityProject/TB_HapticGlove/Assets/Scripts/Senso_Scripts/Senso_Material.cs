@@ -41,7 +41,7 @@ public class Senso_Material : MonoBehaviour
     /// <summary> Is the object picked up ? </summary>
     private bool isObjectPickedUp;
 
-    /// <summary> The grabbedObject </summary>
+    /// <summary> The grabbed object </summary>
     private GameObject grabbedObject;
 
     /// <summary> Position of grabbedObject, updated while grabbed </summary>

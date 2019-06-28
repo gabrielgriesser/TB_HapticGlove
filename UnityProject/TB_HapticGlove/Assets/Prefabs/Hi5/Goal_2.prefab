@@ -101,7 +101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 47813469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54fac13fd4f28e44abcc4f3462d1e527, type: 3}
+  m_Script: {fileID: 11500000, guid: cd3f4cd205bc5a246934589154146d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EffectToShow: {fileID: 1603978261}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 47813467}
   m_Layer: 0
-  m_Name: Goal_2 1
+  m_Name: Goal_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,10 +796,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1375461488, guid: e1660d6a32477af4880ea2db42ee62a1, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1375461485, guid: e1660d6a32477af4880ea2db42ee62a1, type: 3}
       propertyPath: Camera
       value: 
@@ -808,6 +804,10 @@ PrefabInstance:
       propertyPath: RainFallParticleSystem
       value: 
       objectReference: {fileID: 230553336}
+    - target: {fileID: 1375461488, guid: e1660d6a32477af4880ea2db42ee62a1, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1660d6a32477af4880ea2db42ee62a1, type: 3}
 --- !u!1 &1603978261 stripped

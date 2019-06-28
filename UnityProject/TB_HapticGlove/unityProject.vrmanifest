@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.tb_hapticglove.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\gabriel.griesser\\Documents\\TB_HapticGlove_21.06_SensoDONEWithoutHMD\\actions.json",
+      "action_manifest_path": "C:\\Users\\gabriel.griesser\\Documents\\TB_HapticGlove_FalconWithoutHMD\\actions.json",
       "strings": {
         "en_us": {
           "name": "TB_HapticGlove [Testing]"

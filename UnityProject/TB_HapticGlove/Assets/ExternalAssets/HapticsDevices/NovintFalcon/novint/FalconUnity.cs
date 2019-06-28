@@ -1502,7 +1502,7 @@ public class FalconUnity{
 		return FalconUnityCall.getGodPosition(falcon_num, out pos_out);
 	}
 	
-	// returns the position of the god object, note that this is a physics-simulated rigid body
+	// returns the force of the god object, note that this is a physics-simulated rigid body
     public static bool getAverageFalconForces(int falcon_num, out Vector3 force_out) {
 		return FalconUnityCall.getFalconForces(falcon_num, out force_out);
 	}
